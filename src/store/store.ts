@@ -1,14 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-
-
-import counterReducer from './counterSlice';
+import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './addCart';
+import productReducer from './productSlice';
+import authReducer from './authSlice';
 
 export const store = configureStore({
-    reducer: {
-        counter: counterReducer,
-        cart: cartReducer,
-    }
+  reducer: {
+    cart: cartReducer,
+    products: productReducer,
+    auth: authReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

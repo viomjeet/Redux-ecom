@@ -1,0 +1,122 @@
+$brand-icon-bg: #212529;
+$avatar-bg: #0d6efd;
+$menu-min-width: 180px;
+$bg-light-gray: #f8f9fa;
+$border-slate: #e2e8f0;
+$badge-slate: #f1f5f9;
+$text-dark-slate: #0f172a;
+
+.app-navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1000;
+
+  .brand-link {
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    .brand-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.12);
+    }
+
+    .brand-text-main {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .brand-text-sub {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      background-color: #f1f5f9;
+      color: #475569;
+    }
+  }
+
+  .navbar-brand-icon {
+    width: 32px;
+    height: 32px;
+    background-color: $brand-icon-bg;
+  }
+
+  .navbar-cart-btn {
+    height: 38px;
+  }
+
+  .navbar-profile-toggle {
+    height: 38px;
+
+    .navbar-avatar-circle {
+      width: 26px;
+      height: 26px;
+      font-size: 0.75rem;
+      background-color: $avatar-bg;
+    }
+  }
+
+  .navbar-profile-menu {
+    min-width: $menu-min-width;
+
+    .user-email-text {
+      font-size: 0.75rem;
+    }
+  }
+
+  .navbar-login-btn {
+    height: 38px;
+  }
+}
+
+.login-page-wrapper {
+  background-color: $bg-light-gray;
+  min-height: 90vh;
+
+  .login-card-container {
+    max-width: 420px;
+  }
+
+  .login-lock-circle {
+    width: 56px;
+    height: 56px;
+    background-color: $badge-slate;
+    border-color: $border-slate;
+    color: $text-dark-slate;
+  }
+}
+
+.cart-page-wrapper {
+  background-color: $bg-light-gray;
+  min-height: 100vh;
+  padding: 30px 0;
+
+  .cart-item-image-container {
+    height: 85px;
+    width: 100%;
+
+    .cart-item-img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .recommended-image-container {
+    height: 160px;
+
+    .recommended-img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+}

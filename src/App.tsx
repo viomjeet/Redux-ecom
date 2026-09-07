@@ -1,17 +1,24 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Navigation/Navigation';
 import Product from './Products';
+import CartItem from './CartItem';
+import Login from './Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import { useIdleTimer } from './hooks/useIdleTimer';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CartItem from './CartItem';
 
 function App() {
+  useIdleTimer();
+
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Product />} />
-        <Route path="/cart" element={<CartItem />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<ProtectedRoute><Product /></ProtectedRoute>} />
+        <Route path="/cart" element={<ProtectedRoute><CartItem /></ProtectedRoute>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );

@@ -44,11 +44,10 @@ export default function CartItem() {
   const subtotal = items.reduce((acc: number, item: any) => acc + (item.price * (item.quantity || 1)), 0);
 
   return (
-    <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', padding: '30px 0' }}>
+    <div className="cart-page-wrapper">
       <Container>
         {items.length > 0 ? (
           <>
-            {/* Header */}
             <div className="d-flex justify-content-between align-items-center mb-4">
               <div>
                 <h3 className="fw-bold mb-1">Shopping Cart</h3>
@@ -60,31 +59,20 @@ export default function CartItem() {
             </div>
 
             <Row className="g-4">
-              {/* Cart Items List */}
               <Col lg={8}>
                 {items.map((product: any) => (
                   <Card key={product.id} className="mb-3 border-0 shadow-sm rounded-4 overflow-hidden">
                     <Card.Body className="p-3">
                       <Row className="align-items-center">
-                        {/* Image Container with contain fit */}
                         <Col xs={4} sm={3} md={2}>
-                          <div
-                            className="d-flex align-items-center justify-content-center bg-white rounded-3 p-2 border"
-                            style={{ height: '85px', width: '100%' }}
-                          >
+                          <div className="cart-item-image-container d-flex align-items-center justify-content-center bg-white rounded-3 p-2 border">
                             <img
                               src={product.thumbnail || product.image}
                               alt={product.title}
-                              style={{
-                                maxHeight: '100%',
-                                maxWidth: '100%',
-                                objectFit: 'contain',
-                              }}
+                              className="cart-item-img"
                             />
                           </div>
                         </Col>
-
-                        {/* Title & Unit Price */}
                         <Col xs={8} sm={4} md={4}>
                           <h6
                             className="mb-1 text-dark fw-semibold text-truncate"
@@ -97,7 +85,6 @@ export default function CartItem() {
                           </div>
                         </Col>
 
-                        {/* Quantity Counter */}
                         <Col xs={6} sm={3} md={3} className="mt-3 mt-sm-0">
                           <ButtonGroup size="sm" className="rounded-pill border overflow-hidden">
                             <Button
@@ -120,7 +107,6 @@ export default function CartItem() {
                           </ButtonGroup>
                         </Col>
 
-                        {/* Total per Item & Delete */}
                         <Col xs={6} sm={2} md={3} className="text-end mt-3 mt-sm-0">
                           <div className="fw-bold fs-6 text-dark mb-1">
                             ${(product.price * product.quantity).toFixed(2)}
@@ -139,9 +125,8 @@ export default function CartItem() {
                 ))}
               </Col>
 
-              {/* Order Summary Sidebar */}
               <Col lg={4}>
-                <Card className="border-0 shadow-sm rounded-4 p-4 sticky-top" style={{ top: '20px' }}>
+                <Card className="cart-summary-card border-0 shadow-sm rounded-4 p-4 sticky-top-position">
                   <h5 className="fw-bold mb-3">Order Summary</h5>
                   <div className="d-flex justify-content-between mb-2 text-muted">
                     <span>Total Quantity:</span>
@@ -166,7 +151,6 @@ export default function CartItem() {
             <hr className="my-5" />
           </>
         ) : (
-          /* Empty Cart State */
           <div className="text-center py-5">
             <h3 className="fw-bold">Your Cart is Empty!</h3>
             <p className="text-muted">Looks like you haven't added anything to your cart yet.</p>
@@ -177,7 +161,6 @@ export default function CartItem() {
           </div>
         )}
 
-        {/* Recommended / Suggested Section */}
         <div>
           <h4 className="fw-bold mb-3">
             {items.length === 0 ? 'Trending Products' : 'You Might Also Like'}
@@ -193,19 +176,12 @@ export default function CartItem() {
                 {recommended.map((item) => (
                   <Col key={item.id} xs={12} sm={6} md={3}>
                     <Card className="h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                      <div
-                        className="d-flex align-items-center justify-content-center p-3 bg-white"
-                        style={{ height: '160px' }}
-                      >
+                      <div className="recommended-image-container d-flex align-items-center justify-content-center p-3 bg-white">
                         <Card.Img
                           variant="top"
                           src={item.thumbnail || item.image}
                           alt={item.title}
-                          style={{
-                            maxHeight: '100%',
-                            maxWidth: '100%',
-                            objectFit: 'contain',
-                          }}
+                          className="recommended-img"
                         />
                       </div>
                       <Card.Body className="d-flex flex-column justify-content-between pt-0 bg-white">
@@ -243,6 +219,3 @@ export default function CartItem() {
     </div>
   );
 }
-
-
-
