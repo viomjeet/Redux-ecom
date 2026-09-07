@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const location = useLocation();
-  const count = useSelector((state: any) => state.counter?.count ?? 0);
+  // const count = useSelector((state: any) => state.counter?.count ?? 0);
   const items = useSelector((state: any) => state.cart?.items ?? []);
 
   // Total quantity count (agar ek item 2 baar hai toh 2 count karega)

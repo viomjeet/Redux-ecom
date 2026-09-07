@@ -39,8 +39,7 @@ export default function Product() {
       const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
       const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
-    })
-      .sort((a, b) => {
+    }).sort((a, b) => {
         if (sortBy === 'low-high') return a.price - b.price;
         if (sortBy === 'high-low') return b.price - a.price;
         if (sortBy === 'a-z') return a.title.localeCompare(b.title);
