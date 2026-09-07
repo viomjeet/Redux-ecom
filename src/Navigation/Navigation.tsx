@@ -7,7 +7,6 @@ export default function Navbar() {
   // const count = useSelector((state: any) => state.counter?.count ?? 0);
   const items = useSelector((state: any) => state.cart?.items ?? []);
 
-  // Total quantity count (agar ek item 2 baar hai toh 2 count karega)
   const totalQty = items.reduce(
     (acc: number, item: any) => acc + (item.quantity || 1),
     0
